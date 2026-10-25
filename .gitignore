@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Data: stays in Google Drive, not GitHub
+*.csv
+*.sav
+*.xlsx
+*.zip
