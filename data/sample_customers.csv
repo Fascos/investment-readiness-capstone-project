@@ -1,0 +1,151 @@
+customer_id,age,urban_rural,county,education,marital_status,household_size,livelihood,monthly_income,has_id,mobile_money,literacy_score,sex
+C001,34.0,Urban,Kajiado,Primary,Single/Never Married,1.0,Employed,22000.0,Yes,Yes,2,Male
+C002,31.0,Rural,Bomet,Primary,Married/Living with partner,6.0,Dependent,2000.0,Yes,Yes,3,Female
+C003,85.0,Rural,Garissa,None,Widowed,3.0,Dependent,10000.0,Yes,No,2,Female
+C004,25.0,Urban,Kiambu,Secondary,Single/Never Married,1.0,Employed,10000.0,Yes,Yes,3,Male
+C005,20.0,Rural,Kitui,Tertiary,Single/Never Married,6.0,Own Business,5000.0,Yes,Yes,3,Male
+C006,30.0,Rural,Meru,Secondary,Single/Never Married,2.0,Own Business,8000.0,Yes,Yes,2,Female
+C007,32.0,Rural,Nyamira,Tertiary,Married/Living with partner,6.0,Agriculture,30000.0,Yes,Yes,3,Female
+C008,23.0,Urban,Makueni,Secondary,Single/Never Married,3.0,Dependent,,Yes,Yes,3,Male
+C009,42.0,Urban,Nyeri,Primary,Divorced/separated,1.0,Casual Worker,7200.0,Yes,Yes,3,Female
+C010,33.0,Urban,Bomet,Tertiary,Married/Living with partner,5.0,Employed,30000.0,Yes,Yes,3,Female
+C011,33.0,Urban,Elgeyo-Marakwet,Secondary,Married/Living with partner,5.0,Casual Worker,45000.0,Yes,Yes,2,Male
+C012,26.0,Urban,Kiambu,Secondary,Single/Never Married,2.0,Employed,35000.0,Yes,Yes,3,Male
+C013,26.0,Rural,Uasin Gishu,Primary,Married/Living with partner,4.0,Own Business,5000.0,Yes,Yes,2,Female
+C014,30.0,Rural,Garissa,None,Divorced/separated,3.0,Other,,Yes,No,2,Female
+C015,16.0,Rural,Kakamega,Primary,Single/Never Married,7.0,Dependent,250.0,No,No,2,Male
+C016,23.0,Rural,Kirinyaga,Tertiary,Single/Never Married,2.0,Dependent,5000.0,Yes,Yes,2,Female
+C017,31.0,Urban,Kiambu,Tertiary,Married/Living with partner,2.0,Employed,100000.0,Yes,Yes,3,Male
+C018,32.0,Rural,Kericho,Secondary,Married/Living with partner,5.0,Casual Worker,1500.0,Yes,Yes,3,Female
+C019,19.0,Urban,Wajir,Secondary,Single/Never Married,9.0,Dependent,500.0,Yes,Yes,3,Male
+C020,40.0,Rural,Nyandarua,Secondary,Divorced/separated,1.0,Agriculture,6000.0,Yes,Yes,2,Male
+C021,25.0,Rural,Meru,Secondary,Married/Living with partner,4.0,Own Business,6000.0,Yes,Yes,2,Female
+C022,28.0,Rural,Marsabit,Primary,Married/Living with partner,4.0,Employed,3000.0,Yes,Yes,3,Female
+C023,51.0,Rural,Makueni,Secondary,Divorced/separated,1.0,Casual Worker,4500.0,Yes,Yes,2,Male
+C024,34.0,Urban,Meru,Secondary,Married/Living with partner,4.0,Agriculture,2000.0,Yes,Yes,3,Female
+C025,85.0,Rural,Nyeri,None,Widowed,2.0,Dependent,4000.0,Yes,Yes,2,Male
+C026,37.0,Rural,Kericho,Primary,Married/Living with partner,5.0,Casual Worker,2000.0,Yes,Yes,2,Female
+C027,27.0,Urban,Kajiado,Secondary,Single/Never Married,3.0,Casual Worker,15000.0,Yes,Yes,2,Female
+C028,78.0,Rural,Nyamira,None,Widowed,1.0,Dependent,1000.0,No,Yes,0,Female
+C029,67.0,Rural,Busia,Primary,Widowed,1.0,Dependent,,Yes,No,2,Male
+C030,28.0,Rural,Wajir,None,Married/Living with partner,6.0,Dependent,3000.0,Yes,Yes,0,Female
+C031,36.0,Rural,Kwale,Primary,Married/Living with partner,6.0,Casual Worker,4000.0,Yes,Yes,3,Male
+C032,23.0,Rural,Nandi,Primary,Married/Living with partner,3.0,Dependent,10000.0,Yes,Yes,2,Female
+C033,16.0,Rural,Makueni,Secondary,Single/Never Married,7.0,Dependent,500.0,No,No,2,Male
+C034,29.0,Rural,Bomet,Secondary,Married/Living with partner,3.0,Dependent,10000.0,Yes,Yes,2,Female
+C035,34.0,Rural,Laikipia,None,Married/Living with partner,5.0,Own Business,15000.0,Yes,Yes,1,Female
+C036,42.0,Rural,Kakamega,Secondary,Divorced/separated,1.0,Agriculture,6000.0,No,Yes,3,Female
+C037,37.0,Rural,Bomet,Primary,Married/Living with partner,6.0,Dependent,1000.0,Yes,No,2,Female
+C038,45.0,Rural,Garissa,None,Married/Living with partner,7.0,Other,9000.0,Yes,Yes,2,Female
+C039,34.0,Urban,Nyeri,Secondary,Married/Living with partner,4.0,Own Business,8000.0,Yes,Yes,3,Female
+C040,40.0,Urban,Nyandarua,Secondary,Married/Living with partner,5.0,Own Business,18000.0,Yes,Yes,3,Female
+C041,38.0,Rural,Migori,Primary,Married/Living with partner,6.0,Agriculture,2000.0,Yes,Yes,3,Male
+C042,32.0,Rural,Kisii,Primary,Married/Living with partner,7.0,Casual Worker,600.0,Yes,Yes,2,Female
+C043,16.0,Urban,Bomet,Secondary,Single/Never Married,5.0,Dependent,2000.0,No,No,3,Male
+C044,34.0,Rural,Isiolo,Secondary,Married/Living with partner,1.0,Own Business,5000.0,Yes,Yes,1,Male
+C045,17.0,Rural,Isiolo,Secondary,Single/Never Married,3.0,Dependent,,Yes,No,3,Female
+C046,27.0,Rural,Meru,Primary,Single/Never Married,9.0,Casual Worker,7000.0,Yes,Yes,2,Male
+C047,20.0,Urban,Kiambu,Secondary,Single/Never Married,1.0,Employed,9000.0,Yes,Yes,3,Male
+C048,17.0,Rural,Murang'a,Secondary,Single/Never Married,4.0,Casual Worker,2000.0,No,Yes,2,Male
+C049,41.0,Rural,Bomet,Primary,Widowed,4.0,Casual Worker,1200.0,Yes,Yes,3,Male
+C050,26.0,Rural,Busia,Primary,Married/Living with partner,1.0,Employed,4500.0,No,No,2,Male
+C051,32.0,Rural,Elgeyo-Marakwet,Primary,Married/Living with partner,6.0,Agriculture,5000.0,Yes,Yes,2,Female
+C052,38.0,Rural,Nyamira,Secondary,Married/Living with partner,5.0,Casual Worker,3000.0,Yes,Yes,3,Female
+C053,20.0,Urban,West Pokot,Secondary,Single/Never Married,6.0,Dependent,350.0,No,Yes,2,Male
+C054,20.0,Rural,Murang'a,Secondary,Single/Never Married,2.0,Dependent,5000.0,Yes,Yes,3,Female
+C055,17.0,Urban,Lamu,Secondary,Single/Never Married,4.0,Dependent,5000.0,No,No,2,Male
+C056,18.0,Urban,Nakuru,Secondary,Single/Never Married,2.0,Dependent,3000.0,No,Yes,2,Female
+C057,38.0,Urban,Machakos,Secondary,Married/Living with partner,3.0,Own Business,27000.0,Yes,Yes,3,Male
+C058,44.0,Rural,Bungoma,Primary,Married/Living with partner,5.0,Own Business,52000.0,Yes,Yes,2,Male
+C059,38.0,Rural,Vihiga,Primary,Married/Living with partner,9.0,Casual Worker,5000.0,Yes,Yes,2,Female
+C060,16.0,Urban,Kirinyaga,Secondary,Single/Never Married,4.0,Dependent,1800.0,Yes,Yes,3,Male
+C061,24.0,Urban,Murang'a,Tertiary,Married/Living with partner,2.0,Employed,10000.0,Yes,Yes,2,Female
+C062,26.0,Urban,Tana River,Secondary,Married/Living with partner,3.0,Dependent,,Yes,Yes,3,Female
+C063,38.0,Rural,Laikipia,Primary,Divorced/separated,6.0,Casual Worker,4000.0,Yes,Yes,3,Female
+C064,27.0,Rural,Kisii,Secondary,Single/Never Married,1.0,Employed,1000.0,No,No,2,Male
+C065,48.0,Urban,Nandi,None,Married/Living with partner,4.0,Casual Worker,4500.0,Yes,Yes,3,Female
+C066,50.0,Urban,Makueni,Primary,Widowed,8.0,Dependent,,Yes,Yes,1,Female
+C067,42.0,Urban,Mombasa,Tertiary,Married/Living with partner,5.0,Casual Worker,18000.0,Yes,Yes,3,Male
+C068,19.0,Rural,Marsabit,None,Married/Living with partner,4.0,Agriculture,6000.0,No,Yes,0,Female
+C069,31.0,Rural,Taita-Taveta,Secondary,Married/Living with partner,4.0,Agriculture,7000.0,Yes,Yes,2,Male
+C070,16.0,Rural,Taita-Taveta,Primary,Single/Never Married,6.0,Casual Worker,8000.0,No,Yes,3,Male
+C071,47.0,Rural,Machakos,Primary,Married/Living with partner,5.0,Casual Worker,7000.0,Yes,Yes,1,Female
+C072,60.0,Rural,Narok,None,Widowed,4.0,Agriculture,4000.0,Yes,Yes,1,Female
+C073,35.0,Rural,Narok,Secondary,Married/Living with partner,11.0,Employed,30000.0,Yes,Yes,3,Male
+C074,18.0,Rural,Nandi,Secondary,Single/Never Married,3.0,Agriculture,13000.0,Yes,Yes,3,Male
+C075,28.0,Rural,Elgeyo-Marakwet,Secondary,Married/Living with partner,3.0,Own Business,10000.0,Yes,Yes,3,Female
+C076,32.0,Urban,Vihiga,Secondary,Divorced/separated,1.0,Own Business,20000.0,Yes,Yes,3,Male
+C077,19.0,Rural,Kisii,Tertiary,Single/Never Married,6.0,Other,,Yes,Yes,3,Female
+C078,69.0,Rural,Murang'a,None,Divorced/separated,2.0,Casual Worker,1500.0,Yes,Yes,1,Male
+C079,23.0,Urban,Marsabit,None,Married/Living with partner,5.0,Dependent,3000.0,Yes,No,1,Female
+C080,35.0,Rural,Kajiado,Secondary,Married/Living with partner,5.0,Own Business,30000.0,Yes,Yes,3,Male
+C081,17.0,Rural,Baringo,Secondary,Single/Never Married,8.0,Dependent,300.0,Yes,No,2,Female
+C082,48.0,Rural,Kakamega,Secondary,Married/Living with partner,6.0,Agriculture,,Yes,Yes,3,Female
+C083,27.0,Rural,Siaya,Tertiary,Single/Never Married,6.0,Casual Worker,10000.0,Yes,Yes,3,Male
+C084,22.0,Rural,Laikipia,Secondary,Married/Living with partner,3.0,Agriculture,12000.0,No,Yes,2,Female
+C085,41.0,Rural,Laikipia,Secondary,Divorced/separated,3.0,Casual Worker,5000.0,Yes,Yes,2,Female
+C086,76.0,Rural,Meru,Primary,Widowed,1.0,Agriculture,15000.0,Yes,Yes,3,Female
+C087,17.0,Rural,Nandi,Secondary,Single/Never Married,5.0,Own Business,3000.0,Yes,Yes,3,Female
+C088,72.0,Urban,Machakos,None,Married/Living with partner,1.0,Own Business,4500.0,Yes,No,3,Male
+C089,17.0,Urban,Trans Nzoia,Secondary,Single/Never Married,5.0,Other,,No,No,3,Female
+C090,37.0,Rural,Vihiga,Primary,Married/Living with partner,6.0,Own Business,2000.0,Yes,Yes,3,Female
+C091,29.0,Rural,Machakos,Secondary,Married/Living with partner,4.0,Dependent,2000.0,Yes,Yes,3,Female
+C092,74.0,Rural,Nandi,None,Widowed,1.0,Dependent,2000.0,Yes,No,2,Female
+C093,25.0,Rural,Makueni,Secondary,Married/Living with partner,4.0,Dependent,3000.0,Yes,Yes,3,Female
+C094,37.0,Urban,Kiambu,Secondary,Married/Living with partner,8.0,Own Business,9000.0,Yes,Yes,3,Male
+C095,19.0,Urban,Turkana,Secondary,Single/Never Married,5.0,Dependent,300.0,No,No,2,Female
+C096,38.0,Rural,Nyamira,Secondary,Married/Living with partner,6.0,Casual Worker,4600.0,Yes,Yes,2,Female
+C097,49.0,Urban,Garissa,None,Widowed,1.0,Own Business,30000.0,Yes,Yes,2,Male
+C098,42.0,Rural,West Pokot,Primary,Married/Living with partner,10.0,Own Business,7000.0,Yes,Yes,2,Male
+C099,37.0,Rural,Kisii,Secondary,Married/Living with partner,4.0,Employed,4000.0,Yes,Yes,3,Male
+C100,23.0,Urban,Kiambu,Secondary,Single/Never Married,1.0,Own Business,12000.0,Yes,Yes,3,Male
+C101,17.0,Rural,Siaya,Secondary,Single/Never Married,3.0,Dependent,,No,No,1,Female
+C102,25.0,Rural,Isiolo,None,Married/Living with partner,4.0,Agriculture,13000.0,Yes,Yes,2,Female
+C103,44.0,Rural,Homabay,Secondary,Widowed,3.0,Agriculture,10000.0,Yes,Yes,2,Female
+C104,30.0,Rural,Turkana,Primary,Married/Living with partner,6.0,Own Business,3000.0,Yes,Yes,2,Female
+C105,66.0,Rural,Migori,Primary,Widowed,2.0,Agriculture,400.0,Yes,Yes,1,Female
+C106,24.0,Urban,Migori,Tertiary,Single/Never Married,6.0,Casual Worker,,Yes,Yes,2,Male
+C107,27.0,Rural,Taita-Taveta,Secondary,Single/Never Married,5.0,Employed,20000.0,Yes,Yes,2,Female
+C108,22.0,Rural,Bungoma,Secondary,Married/Living with partner,2.0,Own Business,3000.0,Yes,Yes,3,Female
+C109,59.0,Rural,Kakamega,Secondary,Widowed,3.0,Agriculture,1000.0,Yes,No,0,Female
+C110,16.0,Urban,Mombasa,Primary,Single/Never Married,3.0,Dependent,800.0,No,Yes,3,Female
+C111,46.0,Rural,Migori,Primary,Widowed,6.0,Agriculture,1200.0,Yes,Yes,1,Female
+C112,18.0,Rural,Bungoma,Primary,Single/Never Married,5.0,Dependent,500.0,No,Yes,2,Female
+C113,33.0,Urban,Siaya,Secondary,Married/Living with partner,2.0,Casual Worker,10000.0,Yes,Yes,3,Male
+C114,35.0,Rural,Kirinyaga,Primary,Married/Living with partner,3.0,Casual Worker,1800.0,Yes,Yes,1,Female
+C115,58.0,Urban,Turkana,None,Widowed,2.0,Dependent,,Yes,No,2,Female
+C116,72.0,Rural,Nyandarua,Primary,Married/Living with partner,4.0,Dependent,4000.0,Yes,Yes,2,Female
+C117,61.0,Rural,Machakos,Primary,Widowed,4.0,Dependent,7000.0,Yes,Yes,2,Female
+C118,24.0,Urban,Machakos,Primary,Married/Living with partner,3.0,Casual Worker,3000.0,No,Yes,3,Male
+C119,42.0,Rural,Kisii,Primary,Widowed,4.0,Casual Worker,1000.0,Yes,Yes,2,Female
+C120,64.0,Urban,Mombasa,Primary,Widowed,1.0,Casual Worker,,Yes,Yes,3,Male
+C121,16.0,Urban,Homabay,Secondary,Single/Never Married,2.0,Dependent,500.0,No,Yes,3,Female
+C122,20.0,Rural,Tana River,Primary,Married/Living with partner,3.0,Dependent,3000.0,No,Yes,3,Female
+C123,20.0,Rural,Murang'a,Secondary,Single/Never Married,11.0,Dependent,4000.0,Yes,Yes,3,Female
+C124,35.0,Urban,Taita-Taveta,Secondary,Married/Living with partner,6.0,Employed,20000.0,Yes,Yes,3,Female
+C125,67.0,Rural,Kisumu,Primary,Widowed,1.0,Agriculture,1000.0,Yes,No,2,Female
+C126,39.0,Rural,Garissa,Tertiary,Married/Living with partner,6.0,Agriculture,20000.0,Yes,Yes,3,Male
+C127,27.0,Urban,Embu,Tertiary,Single/Never Married,1.0,Own Business,5000.0,Yes,Yes,3,Female
+C128,54.0,Rural,Nyeri,Primary,Divorced/separated,1.0,Agriculture,10000.0,Yes,Yes,1,Male
+C129,40.0,Urban,Mombasa,None,Divorced/separated,4.0,Own Business,8000.0,Yes,Yes,1,Female
+C130,42.0,Rural,Embu,Primary,Married/Living with partner,6.0,Casual Worker,7500.0,Yes,Yes,3,Female
+C131,42.0,Rural,Turkana,None,Married/Living with partner,10.0,Own Business,500.0,Yes,Yes,2,Female
+C132,55.0,Rural,Murang'a,Primary,Divorced/separated,1.0,Agriculture,4000.0,Yes,Yes,1,Male
+C133,80.0,Urban,Vihiga,None,Widowed,6.0,Dependent,2000.0,Yes,Yes,2,Female
+C134,49.0,Urban,Kericho,Secondary,Married/Living with partner,1.0,Employed,25000.0,Yes,Yes,2,Male
+C135,42.0,Rural,Nyandarua,Primary,Married/Living with partner,4.0,Dependent,5000.0,Yes,Yes,1,Female
+C136,100.0,Rural,Makueni,Primary,Married/Living with partner,1.0,Dependent,6000.0,Yes,Yes,1,Male
+C137,49.0,Rural,Meru,Tertiary,Divorced/separated,1.0,Employed,36000.0,Yes,Yes,3,Male
+C138,25.0,Urban,Nakuru,Secondary,Single/Never Married,2.0,Employed,10000.0,Yes,Yes,3,Male
+C139,80.0,Rural,Embu,Primary,Widowed,1.0,Dependent,3000.0,Yes,Yes,1,Female
+C140,27.0,Urban,Machakos,Secondary,Single/Never Married,2.0,Employed,18000.0,Yes,Yes,2,Male
+C141,42.0,Rural,Kisumu,Primary,Married/Living with partner,5.0,Own Business,3000.0,Yes,Yes,2,Female
+C142,22.0,Rural,Lamu,Secondary,Single/Never Married,6.0,Dependent,500.0,Yes,No,3,Female
+C143,42.0,Urban,Kajiado,Primary,Single/Never Married,5.0,Own Business,8000.0,Yes,Yes,1,Male
+C144,60.0,Rural,Meru,Primary,Widowed,1.0,Casual Worker,3500.0,No,No,2,Female
+C145,36.0,Urban,Turkana,Secondary,Married/Living with partner,2.0,Own Business,5000.0,Yes,Yes,2,Male
+C146,19.0,Rural,Kilifi,Secondary,Single/Never Married,5.0,Dependent,2000.0,No,Yes,3,Female
+C147,32.0,Rural,Nakuru,Primary,Married/Living with partner,5.0,Agriculture,20000.0,Yes,No,3,Female
+C148,30.0,Rural,Wajir,None,Married/Living with partner,9.0,Dependent,15000.0,Yes,Yes,2,Female
+C149,25.0,Rural,Meru,Primary,Married/Living with partner,5.0,Casual Worker,3500.0,Yes,Yes,3,Female
+C150,55.0,Rural,Siaya,Primary,Married/Living with partner,6.0,Employed,25000.0,Yes,Yes,2,Male
