@@ -57,4 +57,9 @@ Use **Python 3.13** with the pinned versions (scikit-learn 1.6.1, xgboost 3.4.1,
 - Product details are general. **For learning only, not financial advice.**
 
 ## Team
-Nickson Kipruto, Martin Ngemu, Peter Kyalo, Mary Nyang'au, Cyrus Kirui (team leader) and Fascos Jepleting.
+1. Nickson Kipruto
+2. Martin Ngemu
+3. Peter Kyalo
+4. Mary Nyang'au
+5. Cyrus Kirui (team leader) and
+6. Fascos Jepleting (scrum)
