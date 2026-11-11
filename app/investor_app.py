@@ -33,11 +33,13 @@ EXAMPLE_PEOPLE = {
         "age": 24, "urban_rural": "Rural", "county": "Kisii", "education": "Secondary",
         "marital_status": "Married/Living with partner", "household_size": 5, "livelihood": "Agriculture",
         "monthly_income": 8_000, "has_id": "Yes", "mobile_money": "Yes", "literacy_score": 2,
+        "quiz": ["Exactly KSh 110", "More", "Spreading your money across several investments"],
     },
     "James, 41, teacher in Nairobi": {
         "age": 41, "urban_rural": "Urban", "county": "Nairobi City", "education": "Tertiary",
         "marital_status": "Married/Living with partner", "household_size": 4, "livelihood": "Employed",
         "monthly_income": 85_000, "has_id": "Yes", "mobile_money": "Yes", "literacy_score": 3,
+        "quiz": ["Exactly KSh 110", "Less", "Spreading your money across several investments"],
     },
 }
 

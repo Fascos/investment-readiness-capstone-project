@@ -21,17 +21,17 @@ QUIZ = {
 }
 FORM_FIELDS = ["urban_rural", "county", "education", "marital_status", "livelihood", "has_id", "mobile_money"]
 
-# Sensible starting answers (choices the person must make are left empty)
-st.session_state.setdefault("ind_age", 30)
-st.session_state.setdefault("ind_household_size", 4)
-st.session_state.setdefault("ind_income", 15_000)
+# Starting answers: number boxes start empty (with a hint), Yes/No questions start at the most common answer
+st.session_state.setdefault("ind_age", None)
+st.session_state.setdefault("ind_household_size", None)
+st.session_state.setdefault("ind_income", None)
 st.session_state.setdefault("ind_prefer_not", False)
 st.session_state.setdefault("ind_has_id", standardise_answer(bundle, "has_id", "Yes"))
 st.session_state.setdefault("ind_mobile_money", "Yes")
 
 
 def load_example(name):
-    # Fill the form with one of the example people
+    # Fill the whole form with one of the example people and show their results straight away
     person = EXAMPLE_PEOPLE[name]
     st.session_state["ind_age"] = person["age"]
     st.session_state["ind_household_size"] = person["household_size"]
@@ -39,10 +39,16 @@ def load_example(name):
     st.session_state["ind_prefer_not"] = False
     for field in FORM_FIELDS:
         st.session_state[f"ind_{field}"] = standardise_answer(bundle, field, person[field])
-    for k, key in enumerate(QUIZ):
-        _, options, correct = QUIZ[key]
-        st.session_state[key] = correct if k < person["literacy_score"] else "I don't know"
-    st.session_state.pop("answers", None)
+    for key, answer in zip(QUIZ, person["quiz"]):
+        st.session_state[key] = answer
+    st.session_state["answers"] = {field: st.session_state[f"ind_{field}"] for field in FORM_FIELDS}
+    st.session_state["answers"].update({
+        "age": person["age"], "household_size": person["household_size"],
+        "monthly_income": person["monthly_income"],
+        "literacy_score": sum(answer == QUIZ[key][2] for key, answer in zip(QUIZ, person["quiz"])),
+    })
+    st.session_state["example_name"] = name
+    st.toast(f"Loaded {name}. Scroll down to see the options.")
 
 
 st.title("Find options that suit people like you")
@@ -59,12 +65,12 @@ with st.form("individual_form"):
     st.subheader("About you")
     col1, col2 = st.columns(2)
     with col1:
-        st.number_input("Age", min_value=16, max_value=105, step=1, key="ind_age")
+        st.number_input("Age", min_value=16, max_value=105, step=1, placeholder="e.g. 30", key="ind_age")
         st.selectbox("County", choices["county"], index=None, placeholder="Choose your county", key="ind_county")
         st.selectbox("Do you live in an urban or rural area?", choices["urban_rural"], index=None,
                      placeholder="Choose one", key="ind_urban_rural")
         st.number_input("How many people live in your household?", min_value=1, max_value=20, step=1,
-                        key="ind_household_size")
+                        placeholder="e.g. 4", key="ind_household_size")
         st.selectbox("Marital status", choices["marital_status"], index=None, placeholder="Choose one",
                      key="ind_marital_status")
     with col2:
@@ -72,7 +78,8 @@ with st.form("individual_form"):
                      key="ind_education")
         st.selectbox("Main source of income / type of work", choices["livelihood"], index=None,
                      placeholder="Choose one", key="ind_livelihood")
-        st.number_input("Monthly income (KSh)", min_value=0, max_value=10_000_000, step=1_000, key="ind_income")
+        st.number_input("Monthly income (KSh)", min_value=0, max_value=10_000_000, step=1_000,
+                        placeholder="e.g. 15000", key="ind_income")
         st.checkbox("I prefer not to say my income", key="ind_prefer_not")
         st.selectbox("Do you have a national ID or passport?", choices["has_id"], key="ind_has_id",
                      format_func=lambda label: "Yes" if label.lower().startswith("has id") else "No")
@@ -85,10 +92,14 @@ with st.form("individual_form"):
     submitted = st.form_submit_button("See my options", type="primary")
 
 if submitted:
-    missing = [label for field, label in [("county", "county"), ("urban_rural", "urban or rural"),
+    st.session_state.pop("example_name", None)
+    missing = [label for field, label in [("age", "age"), ("county", "county"), ("urban_rural", "urban or rural"),
+                                          ("household_size", "household size"),
                                           ("marital_status", "marital status"), ("education", "education"),
                                           ("livelihood", "type of work")]
                if st.session_state.get(f"ind_{field}") is None]
+    if st.session_state.get("ind_income") is None and not st.session_state["ind_prefer_not"]:
+        missing.append("monthly income (or tick 'I prefer not to say')")
     if missing:
         st.warning("Please answer: " + ", ".join(missing) + ".")
         st.stop()
@@ -139,6 +150,9 @@ except Exception:
     st.stop()
 
 st.subheader("Options that people like you use")
+if st.session_state.get("example_name"):
+    st.caption(f"Showing the example: {st.session_state['example_name']}. Change any answer above and press "
+               "See my options to try your own.")
 if result["starter_step"]:
     st.write("Few people with answers like yours use investment products yet, so here are good places to start.")
 show_suggestions(result)

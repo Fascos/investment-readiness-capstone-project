@@ -10,6 +10,11 @@ from investor_app import (AVERAGE_RATE, MAX_UPLOAD_ROWS, SAMPLE_PATH, likelihood
 bundle = get_bundle()
 choices = bundle["form_choices"]
 BAND_ORDER = ["High", "Medium", "Low"]
+
+
+def read_customer_csv(source):
+    # Read a CSV without turning the answer "None" (no formal education) into a blank; only empty cells are blank
+    return pd.read_csv(source, keep_default_na=False, na_values=[""])
 BAND_MEANING = {
     "High": "8% or more: about 3 times the average or more. Approach these people first.",
     "Medium": "3% to 8%: around or a little above the average.",
@@ -28,14 +33,14 @@ up_col, sample_col = st.columns([3, 1])
 uploaded = up_col.file_uploader("Upload your customer list (CSV)", type="csv")
 if sample_col.button("Try with sample data", use_container_width=True):
     try:
-        st.session_state["inst_raw"] = pd.read_csv(SAMPLE_PATH)
+        st.session_state["inst_raw"] = read_customer_csv(SAMPLE_PATH)
         st.session_state["inst_source"] = "sample data (people from the survey's test set)"
     except FileNotFoundError:
         st.error("The sample file is missing. Please upload your own list for now.")
 
 if uploaded is not None:
     try:
-        st.session_state["inst_raw"] = pd.read_csv(uploaded)
+        st.session_state["inst_raw"] = read_customer_csv(uploaded)
         st.session_state["inst_source"] = uploaded.name
     except Exception:
         st.error("We couldn't read that file. Please upload a comma-separated (CSV) file with a header row, "
