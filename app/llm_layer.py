@@ -8,7 +8,7 @@ from google import genai
 from common import DISCLAIMER
 
 
-MODEL = "gemini-3.7-flash"
+MODEL = "gemini-3.5-flash-lite"
 
 
 SYSTEM_INSTRUCTION = f"""
