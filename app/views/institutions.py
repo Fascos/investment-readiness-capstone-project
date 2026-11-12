@@ -28,6 +28,10 @@ from investor_app import (
     validate_upload
 )
 
+from llm_layer import (
+    build_institution_prompt,
+    generate_explanation
+)
 
 logger = logging.getLogger(__name__)
 
@@ -656,6 +660,38 @@ for k in (
         )
 
 
+# ------------------------------------------------------------------
+# Gemini explanation of the institutional result
+# ------------------------------------------------------------------
+
+if st.button("Explain this result"):
+
+    try:
+        with st.spinner("Preparing your explanation..."):
+
+            top_reasons = [
+                person[f"reason_{k}"]
+                for k in (1, 2, 3)
+                if pd.notna(person[f"reason_{k}"])
+                and str(person[f"reason_{k}"]).strip()
+            ]
+
+            prompt = build_institution_prompt(
+                person["band"],
+                top_reasons
+            )
+
+            explanation = generate_explanation(prompt)
+
+        st.subheader("Understanding this result")
+        st.write(explanation)
+
+    except Exception:
+        logger.exception("Institution Gemini explanation failed")
+        st.warning(
+            "Our explanation service is temporarily overloaded. "
+            "Please try again in a short while."
+        )
 # ------------------------------------------------------------------
 # Institutional what-if analysis
 # ------------------------------------------------------------------
