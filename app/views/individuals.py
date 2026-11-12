@@ -613,7 +613,10 @@ if st.button("Explain my options"):
 
     except Exception as e:
         logger.exception("Gemini explanation failed")
-        st.error(f"Gemini error: {type(e).__name__}: {e}")
+        st.warning(
+            "Our explanation service is temporarily overloaded. "
+            "Please try again in a short while."
+        )
 
 st.caption(
     f"You answered {answers['literacy_score']} "
