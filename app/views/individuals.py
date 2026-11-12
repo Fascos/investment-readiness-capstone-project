@@ -609,8 +609,8 @@ if st.button("Explain my options"):
         st.write(explanation)
 
     except Exception as e:
-    logger.exception("Gemini explanation failed")
-    st.error(f"Gemini error: {type(e).__name__}: {e}")
+        logger.exception("Gemini explanation failed")
+        st.error(f"Gemini error: {type(e).__name__}: {e}")
 
 st.caption(
     f"You answered {answers['literacy_score']} "
