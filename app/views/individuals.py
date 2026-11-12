@@ -601,7 +601,10 @@ if st.button("Explain my options"):
     try:
         with st.spinner("Preparing your explanation..."):
 
-            prompt = "Reply with: Gemini connection works."
+            prompt = build_individual_prompt(
+                result["suggestions"],
+                bundle["recommender"]["product_reference"]
+            )
 
             explanation = generate_explanation(prompt)
 
@@ -616,7 +619,6 @@ st.caption(
     f"You answered {answers['literacy_score']} "
     "of 3 money questions correctly."
 )
-
 
 # ------------------------------------------------------------------
 # What-if analysis
