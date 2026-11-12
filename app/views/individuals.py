@@ -593,6 +593,31 @@ if result["starter_step"]:
 
 show_suggestions(result)
 
+# ------------------------------------------------------------------
+# Ask Gemini to explain the suggested options
+# ------------------------------------------------------------------
+if st.button("Explain my options"):
+
+    try:
+        with st.spinner("Preparing your explanation..."):
+
+            prompt = build_individual_prompt(
+                result["suggestions"],
+                bundle["recommender"]["product_reference"]
+            )
+
+            explanation = generate_explanation(prompt)
+
+        st.subheader("Understanding your options")
+        st.write(explanation)
+
+    except Exception:
+        logger.exception("Gemini explanation failed")
+        st.error(
+            "We couldn't generate an explanation. "
+            "Please try again later."
+        )
+
 st.caption(
     f"You answered {answers['literacy_score']} "
     "of 3 money questions correctly."
