@@ -601,10 +601,7 @@ if st.button("Explain my options"):
     try:
         with st.spinner("Preparing your explanation..."):
 
-            prompt = build_individual_prompt(
-                result["suggestions"],
-                bundle["recommender"]["product_reference"]
-            )
+            prompt = "Reply with: Gemini connection works."
 
             explanation = generate_explanation(prompt)
 
