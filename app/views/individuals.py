@@ -20,6 +20,10 @@ from investor_app import (
     standardise_answer
 )
 
+from llm_layer import (
+    build_individual_prompt,
+    generate_explanation
+)
 
 logger = logging.getLogger(__name__)
 
