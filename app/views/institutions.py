@@ -30,6 +30,7 @@ from investor_app import (
 
 from llm_layer import (
     build_institution_prompt,
+    build_followup_prompt,
     generate_explanation
 )
 
@@ -658,23 +659,20 @@ for k in (
         st.write(
             f"- {person[f'reason_{k}']}"
         )
-
-
+        
+top_reasons = [
+    person[f"reason_{k}"]
+    for k in (1, 2, 3)
+    if pd.notna(person[f"reason_{k}"])
+    and str(person[f"reason_{k}"]).strip()
+]
 # ------------------------------------------------------------------
 # Gemini explanation of the institutional result
 # ------------------------------------------------------------------
-
 if st.button("Explain this result"):
 
     try:
         with st.spinner("Preparing your explanation..."):
-
-            top_reasons = [
-                person[f"reason_{k}"]
-                for k in (1, 2, 3)
-                if pd.notna(person[f"reason_{k}"])
-                and str(person[f"reason_{k}"]).strip()
-            ]
 
             prompt = build_institution_prompt(
                 person["band"],
@@ -692,6 +690,48 @@ if st.button("Explain this result"):
             "Our explanation service is temporarily overloaded. "
             "Please try again in a short while."
         )
+        
+# ------------------------------------------------------------------
+# Ask a follow-up question
+# ------------------------------------------------------------------
+
+st.subheader("Ask a follow-up question")
+
+followup_question = st.text_input(
+    "What would you like to understand about this result?",
+    placeholder="e.g. What does a High likelihood band mean?"
+)
+
+if st.button("Ask Gemini"):
+
+    if followup_question.strip():
+
+        try:
+            with st.spinner("Preparing your answer..."):
+
+                context = {
+                    "likelihood_band": person["band"],
+                    "top_reasons": top_reasons
+                }
+
+                prompt = build_followup_prompt(
+                    followup_question,
+                    context
+                )
+
+                answer = generate_explanation(prompt)
+
+            st.write(answer)
+
+        except Exception:
+            logger.exception("Institution follow-up question failed")
+            st.warning(
+                "Our explanation service is temporarily overloaded. "
+                "Please try again in a short while."
+            )
+
+    else:
+        st.warning("Please enter a question first.")
 # ------------------------------------------------------------------
 # Institutional what-if analysis
 # ------------------------------------------------------------------
