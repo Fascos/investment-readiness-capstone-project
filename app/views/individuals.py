@@ -608,12 +608,9 @@ if st.button("Explain my options"):
         st.subheader("Understanding your options")
         st.write(explanation)
 
-    except Exception:
-        logger.exception("Gemini explanation failed")
-        st.error(
-            "We couldn't generate an explanation. "
-            "Please try again later."
-        )
+    except Exception as e:
+    logger.exception("Gemini explanation failed")
+    st.error(f"Gemini error: {type(e).__name__}: {e}")
 
 st.caption(
     f"You answered {answers['literacy_score']} "
