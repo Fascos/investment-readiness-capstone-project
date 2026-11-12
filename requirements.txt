@@ -4,3 +4,4 @@ xgboost==3.4.1
 pandas==2.2.3
 numpy==2.4.6
 joblib
+google-genai
