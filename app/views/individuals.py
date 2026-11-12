@@ -22,6 +22,7 @@ from investor_app import (
 
 from llm_layer import (
     build_individual_prompt,
+    build_followup_prompt,
     generate_explanation
 )
 
@@ -623,6 +624,47 @@ st.caption(
     "of 3 money questions correctly."
 )
 
+# ------------------------------------------------------------------
+# Ask a follow-up question
+# ------------------------------------------------------------------
+
+st.subheader("Ask a follow-up question")
+
+followup_question = st.text_input(
+    "What would you like to understand about these options?",
+    placeholder="e.g. What is a money market fund?"
+)
+if st.button("Ask Gemini"):
+
+    if followup_question.strip():
+
+        try:
+            with st.spinner("Preparing your answer..."):
+
+                context = {
+                    "suggested_options": result["suggestions"],
+                    "product_reference": bundle["recommender"]["product_reference"]
+                }
+
+                prompt = build_followup_prompt(
+                    followup_question,
+                    context
+                )
+
+                answer = generate_explanation(prompt)
+
+            st.subheader("Answer to your question")
+            st.write(answer)
+
+        except Exception:
+            logger.exception("Individual follow-up question failed")
+            st.warning(
+                "Our explanation service is temporarily overloaded. "
+                "Please try again in a short while."
+            )
+
+    else:
+        st.warning("Please enter a question first.")
 # ------------------------------------------------------------------
 # What-if analysis
 # ------------------------------------------------------------------
