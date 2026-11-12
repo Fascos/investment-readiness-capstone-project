@@ -3,7 +3,7 @@ import streamlit as st
 
 from common import DATA_NOTE, DISCLAIMER
 
-st.title("Investment Readiness and Recommendation System")
+st.title("Investor Likelihood and Recommendation System")
 st.markdown(
     "**Helping Kenyan adults find a good next step with their money, and helping SACCOs, banks and "
     "fund managers find people who are likely to invest.**"

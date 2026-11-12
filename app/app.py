@@ -1,4 +1,4 @@
-"""Investment Readiness and Recommendation System - Streamlit entry point.
+"""Investment Likelihood and Recommendation System - Streamlit entry point.
 
 Pages (in app/views/):
 - Home: what the app does and where to start
@@ -10,7 +10,7 @@ Run locally:  streamlit run app/app.py
 """
 import streamlit as st
 
-st.set_page_config(page_title="Investment Readiness", page_icon="📈", layout="centered")
+st.set_page_config(page_title="Investor Likelihood and Recommendations", page_icon="📈", layout="centered")
 
 pages = [
     st.Page("views/home.py", title="Home", icon="🏠", default=True),
