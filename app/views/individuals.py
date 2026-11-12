@@ -25,6 +25,20 @@ logger = logging.getLogger(__name__)
 
 
 # ------------------------------------------------------------------
+# Validation limits
+# ------------------------------------------------------------------
+
+MIN_AGE = 16
+MAX_AGE = 105
+
+MIN_HOUSEHOLD_SIZE = 1
+MAX_HOUSEHOLD_SIZE = 20
+
+MIN_MONTHLY_INCOME = 0
+MAX_MONTHLY_INCOME = 10_000_000
+
+
+# ------------------------------------------------------------------
 # Load the deployment bundle
 # ------------------------------------------------------------------
 
@@ -221,14 +235,20 @@ with st.form("individual_form"):
 
     with col1:
 
+        # No min_value or max_value is applied here.
+        # This lets the app show its own visible validation message
+        # directly below the field after the form is submitted.
         st.number_input(
             "Age",
-            min_value=16,
-            max_value=105,
+            value=None,
             step=1,
             placeholder="e.g. 30",
+            help="Enter an age from 16 to 105.",
             key="ind_age"
         )
+
+        # This placeholder is populated after submission if invalid.
+        age_error_placeholder = st.empty()
 
         st.selectbox(
             "County",
@@ -246,14 +266,19 @@ with st.form("individual_form"):
             key="ind_urban_rural"
         )
 
+        # No min_value or max_value is applied here.
+        # The app supplies a visible validation message below.
         st.number_input(
             "How many people live in your household?",
-            min_value=1,
-            max_value=20,
+            value=None,
             step=1,
             placeholder="e.g. 4",
+            help="Enter a household size from 1 to 20.",
             key="ind_household_size"
         )
+
+        # This placeholder is populated after submission if invalid.
+        household_error_placeholder = st.empty()
 
         st.selectbox(
             "Marital status",
@@ -283,8 +308,8 @@ with st.form("individual_form"):
 
         st.number_input(
             "Monthly income (KSh)",
-            min_value=0,
-            max_value=10_000_000,
+            min_value=MIN_MONTHLY_INCOME,
+            max_value=MAX_MONTHLY_INCOME,
             step=1_000,
             placeholder="e.g. 15000",
             key="ind_income"
@@ -344,6 +369,42 @@ if submitted:
         None
     )
 
+    age = st.session_state.get("ind_age")
+    household_size = st.session_state.get(
+        "ind_household_size"
+    )
+
+    # Track whether either numeric input has a range error.
+    numeric_validation_failed = False
+
+    # Age validation appears directly below the Age field.
+    if age is not None and not MIN_AGE <= age <= MAX_AGE:
+        age_error_placeholder.error(
+            f"Please enter an age between "
+            f"{MIN_AGE} and {MAX_AGE}."
+        )
+        numeric_validation_failed = True
+    else:
+        age_error_placeholder.empty()
+
+    # Household-size validation appears directly below that field.
+    if (
+        household_size is not None
+        and not (
+            MIN_HOUSEHOLD_SIZE
+            <= household_size
+            <= MAX_HOUSEHOLD_SIZE
+        )
+    ):
+        household_error_placeholder.error(
+            "Please enter a household size between "
+            f"{MIN_HOUSEHOLD_SIZE} and "
+            f"{MAX_HOUSEHOLD_SIZE}."
+        )
+        numeric_validation_failed = True
+    else:
+        household_error_placeholder.empty()
+
     required_fields = [
         ("age", "age"),
         ("county", "county"),
@@ -377,10 +438,14 @@ if submitted:
             + ", ".join(missing)
             + "."
         )
+
+    # Stop before calling the recommender if anything is missing
+    # or if Age/Household size is outside the accepted range.
+    if missing or numeric_validation_failed:
         st.stop()
 
     st.session_state["answers"] = {
-        "age": st.session_state["ind_age"],
+        "age": age,
         "urban_rural": (
             st.session_state["ind_urban_rural"]
         ),
@@ -391,9 +456,7 @@ if submitted:
         "marital_status": (
             st.session_state["ind_marital_status"]
         ),
-        "household_size": (
-            st.session_state["ind_household_size"]
-        ),
+        "household_size": household_size,
         "livelihood": (
             st.session_state["ind_livelihood"]
         ),
@@ -570,8 +633,8 @@ current_income = (
 
 what_if["monthly_income"] = wcol2.number_input(
     "Monthly income (KSh)",
-    min_value=0,
-    max_value=10_000_000,
+    min_value=MIN_MONTHLY_INCOME,
+    max_value=MAX_MONTHLY_INCOME,
     value=int(current_income),
     step=5_000,
     key="wi_income"
@@ -620,6 +683,7 @@ else:
     with now_col:
 
         st.markdown("**Your options now**")
+
         show_suggestions(
             result,
             compact=True
@@ -628,6 +692,7 @@ else:
     with then_col:
 
         st.markdown("**What if**")
+
         show_suggestions(
             what_if_result,
             compact=True
