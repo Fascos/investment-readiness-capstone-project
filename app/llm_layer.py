@@ -56,6 +56,19 @@ def to_records(data):
 def build_individual_prompt(suggestions, product_table):
     """Build an individual explanation prompt without a model score."""
 
+    # Only pass approved recommendation information
+    allowed_columns = [
+        "display_name",
+        "reason",
+        "risk",
+        "typical_minimum",
+        "access",
+        "time_horizon",
+        "regulator"
+    ]
+
+    suggestions = suggestions[allowed_columns]
+
     supplied_data = {
         "suggested_options": to_records(suggestions),
         "approved_product_table": to_records(product_table)
@@ -65,11 +78,15 @@ def build_individual_prompt(suggestions, product_table):
 Explain these suggested saving and investment options to an
 individual in Kenya.
 
-Explain why the options appeared, what they generally involve,
-and what the individual should understand before considering them.
+Explain why each option was suggested, what it generally involves,
+and what the individual should understand before considering it.
 
-Use only the supplied information. Do not calculate or mention
-an investment likelihood score.
+Use only the supplied information.
+Only explain the suggested options; do not introduce additional
+recommendations from the product table.
+
+Do not calculate or mention an investment likelihood score.
+Do not invent product details, fees, returns or guarantees.
 
 Information:
 {json.dumps(supplied_data, indent=2, default=str)}
