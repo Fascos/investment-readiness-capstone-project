@@ -635,7 +635,7 @@ followup_question = st.text_input(
     placeholder="e.g. What is a money market fund?"
 )
 
-if st.button("Ask Gemini"):
+if st.button("Ask Predictive Minds"):
 
     if followup_question.strip():
 
