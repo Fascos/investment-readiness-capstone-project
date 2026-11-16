@@ -58,7 +58,12 @@ def build_individual_prompt(suggestions, product_table):
 
     supplied_data = {
         "suggested_options": to_records(suggestions),
-        "approved_product_table": to_records(product_table)
+
+        "approved_product_table": (
+            product_table.reset_index().to_dict(orient="records")
+            if hasattr(product_table, "reset_index")
+            else to_records(product_table)
+        )
     }
 
     return f"""
