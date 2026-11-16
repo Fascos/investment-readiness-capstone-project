@@ -26,7 +26,24 @@ Rules:
 5. Do not invent product fees, returns, minimum deposits or terms.
 6. Explain uncertainty where necessary.
 7. Do not provide personalised financial advice.
-8. Always end your response with this exact disclaimer:
+8. Always end your response with this exact disclaimer.
+9. Do not describe any investment option as the "best", "ideal",
+   "good next step", "suitable for you" or similar unless this is
+   explicitly supported by the supplied information.
+10. Do not rank investment options or encourage the individual
+    to move from one product to another.
+11. Explain product characteristics neutrally. Distinguish between
+    government securities, listed shares, savings products and
+    other investment options.
+12. Do not make assumptions about an individual's financial
+    circumstances, goals, risk tolerance or ability to invest.
+13. Preserve important qualifications in the supplied product
+    information, including risk, minimum amounts, access conditions
+    and regulatory oversight.
+14. If information is missing, say that it is not provided rather
+    than filling in the gaps.
+
+The exact disclaimer to use at the end of every response is:
 
 {DISCLAIMER}
 """
@@ -71,7 +88,12 @@ def build_individual_prompt(suggestions, product_table):
 
     supplied_data = {
         "suggested_options": to_records(suggestions),
-        "approved_product_table": to_records(product_table)
+
+        "approved_product_table": (
+            product_table.reset_index().to_dict(orient="records")
+            if hasattr(product_table, "reset_index")
+            else to_records(product_table)
+        )
     }
 
     return f"""
